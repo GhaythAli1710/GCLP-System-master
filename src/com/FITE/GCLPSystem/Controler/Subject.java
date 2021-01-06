@@ -8,6 +8,12 @@ public class Subject {
     private SubjectName name;
     private Section section;
 
+    public Subject(int id, SubjectName name, Section section) {
+        this.id = id;
+        this.name = name;
+        this.section = section;
+    }
+
     public Subject(Subject subject) {
 
     }

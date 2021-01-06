@@ -5,7 +5,7 @@ public class Setting {
     private static int SecondLecture = 10;
     private static int ThirdLecture = 12;
     private static int FourthLecture = 2;
-    private static int NumberSubjects = 10;
+    private static int NumberSubjects = 5;
     private static int DaysNumber = 5;
     private static int LecturesNumberInDay = 4;
 

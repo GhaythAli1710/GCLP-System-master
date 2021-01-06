@@ -2,67 +2,49 @@ package com.FITE.GCLPSystem.Controler;
 
 import com.FITE.GCLPSystem.Controler.Enum.Essential;
 import com.FITE.GCLPSystem.Controler.Enum.NotEssential;
+import com.FITE.GCLPSystem.Controler.Enum.SubjectName;
 
 import java.util.ArrayList;
 
 public class Student {
-    private ArrayList<Subject> subjects= new ArrayList();
+    private ArrayList<SubjectName> subjects= new ArrayList();
     private ArrayList<Desire> desires= new ArrayList<>();
     private ArrayList<Condition> conditions=new ArrayList<>();
-    private Subject[][] sechdule= new Subject[Setting.getDaysNumber()][Setting.getLecturesNumberInDay()];
-
+    private Lecture[][] schedule= new Lecture[Setting.getDaysNumber()][Setting.getLecturesNumberInDay()];
+    /***/
     public Student() {
     }
-
-    public ArrayList<Subject> getSubjects() {
-        return subjects;
+    /***/
+    public void addSubject(SubjectName subject){
+        this.subjects.add(subject);
     }
-
-    public void setSubjects(ArrayList<Subject> subjects) {
-        this.subjects = subjects;
+    /***/
+    public void addDesire(Desire desire){
+        this.desires.add(desire);
     }
-
-    public ArrayList<Desire> getDesires() {
-        return desires;
+    /***/
+    public void addCondition(Condition condition){
+        this.conditions.add(condition);
     }
-
-    public void setDesires(ArrayList<Desire> desires) {
-        this.desires = desires;
-    }
-
-    public ArrayList<Condition> getConditions() {
-        return conditions;
-    }
-
-    public void setConditions(ArrayList<Condition> conditions) {
-        this.conditions = conditions;
-    }
-
-    public Subject[][] getSechdule() {
-        return sechdule;
-    }
-
-    public void setSechdule(Subject[][] sechdule) {
-        this.sechdule = sechdule;
-    }
+    /***/
 
     // private Getter ??
-    Student(Student student) {
-        for(int i=0;i<student.subjects.size();i++) {
-            this.subjects.add(new Subject(student.subjects.get(i)));
-        }
-        for(int i=0;i<student.desires.size();i++) {
-            this.desires.add(new Desire(student.desires.get(i)));
-        }
-        for(int i=0;i<student.conditions.size();i++) {
-            this.conditions.add(new Condition(student.conditions.get(i)));
-        }
-        for(int i=0;i<5;i++) {
-            for (int j=0;j<4;j++) {
-                this.sechdule[i][j]=new Subject(student.sechdule[i][j]);
-            }
-        }
-    }
+//    Student(Student student) {
+//        for(int i=0;i<student.subjects.size();i++) {
+//            this.subjects.add(new Subject(student.subjects.get(i)));
+//        }
+//        for(int i=0;i<student.desires.size();i++) {
+//            this.desires.add(new Desire(student.desires.get(i)));
+//        }
+//        for(int i=0;i<student.conditions.size();i++) {
+//            this.conditions.add(new Condition(student.conditions.get(i)));
+//        }
+//        for(int i=0;i<5;i++) {
+//            for (int j=0;j<4;j++) {
+//                this.schedule[i][j]=new Subject(student.schedule[i][j]);
+//            }
+//        }
+//    }
 
     boolean finalState() {
         if(subjects.isEmpty()) {
@@ -74,7 +56,7 @@ public class Student {
     private class Checkers{
 
         boolean two_lec_in_same_time(int time, int day) {//first strong constraint
-            if(sechdule[day][time]!=null) {
+            if(schedule[day][time]!=null) {
                 return true;
             }
             return false;
@@ -114,10 +96,10 @@ public class Student {
         }
 
         boolean spare_time(int time, int day) {//second weak constraint
-            if(time-1>-1 && sechdule[day][time-1]==null && time-2>-1 &&sechdule[day][time-2]!= null) {
+            if(time-1>-1 && schedule[day][time-1]==null && time-2>-1 &&schedule[day][time-2]!= null) {
                 return true;
             }
-            if(time+1<4 && sechdule[day][time+1]==null && time+2<4 && sechdule[day][time+2]!= null) {
+            if(time+1<4 && schedule[day][time+1]==null && time+2<4 && schedule[day][time+2]!= null) {
                 return true;
             }
             return false;
@@ -143,7 +125,7 @@ public class Student {
         boolean three_in_day(int day) {//fourth weak constraint
             int counter=0;
             for(int i=0;i<4;i++) {
-                if(sechdule[day][i]!=null) {
+                if(schedule[day][i]!=null) {
                     counter++;
                 }
             }
@@ -157,7 +139,7 @@ public class Student {
             for(int i=0;i<5;i++) {
                 int check=0;
                 for(int j=0;j<4;j++) {
-                    if(sechdule[i][j]!=null) {
+                    if(schedule[i][j]!=null) {
                         check=1;
                         j=4;
                     }

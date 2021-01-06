@@ -17,18 +17,16 @@ public class Model {
         for (int i=0;i<sData.length;i++){
             Lecture lecture = new Lecture();
             for (int j=0;j<6;j++){
-                Subject subject = new Subject();
                 Time time = new Time();
                 switch (j){
                     case 0:
-                        subject.setId(Tools.getIdOfSubject(sData[i][j]));
-                        subject.setName(SubjectName.valueOf(sData[i][j]));
-                        lecture.setSubject(subject);
+                        lecture.setId(Tools.getIdOfSubject(sData[i][j]));
+                        lecture.setName(SubjectName.valueOf(sData[i][j]));
                         break;
                     case 1:
-                        lecture.getSubject().setSection(Section.valueOf(sData[i][j]));
+                        lecture.setSection(Section.valueOf(sData[i][j]));
                         if (Section.Practical.equals(Section.valueOf(sData[i][j])))
-                            lecture.getSubject().setId(lecture.getSubject().getId()+1);
+                            lecture.setId(lecture.getId()+1);
                         break;
                     case 2:
                         time.setDay(Day.valueOf(sData[i][j]));
@@ -69,18 +67,18 @@ public class Model {
         studentList.add(student5);
         return studentList;
     }
-//    public static void main(String[] args) throws FileNotFoundException {
-//        ArrayList<Lecture> l = Model.getDataList();
-//        for (int i=0;i<l.size();i++){
-//            System.out.print(l.get(i).getSubject().getId());
-//            System.out.print(l.get(i).getSubject().getName());
-//            System.out.print(l.get(i).getSubject().getSection());
-//            System.out.print(l.get(i).getTime().getDay());
-//            System.out.print(l.get(i).getTime().getClock());
-//            System.out.print(l.get(i).getLocation());
-//            System.out.print(l.get(i).getMaxNum());
-//            System.out.println();
-//        }
-//    }
+    public static void main(String[] args) throws FileNotFoundException {
+        ArrayList<Lecture> l = Model.getLecturesDataList();
+        for (int i=0;i<l.size();i++){
+            System.out.print(l.get(i).getId());
+            System.out.print(l.get(i).getName());
+            System.out.print(l.get(i).getSection());
+            System.out.print(l.get(i).getTime().getDay());
+            System.out.print(l.get(i).getTime().getClock());
+            System.out.print(l.get(i).getLocation());
+            System.out.print(l.get(i).getMaxNum());
+            System.out.println();
+        }
+    }
 
 }

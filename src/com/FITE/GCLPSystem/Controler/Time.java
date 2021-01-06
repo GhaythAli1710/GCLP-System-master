@@ -6,6 +6,14 @@ public class Time {
     private Day day;
     private int clock;
 
+    public Time() {
+    }
+
+    public Time(Day day, int clock) {
+        this.day = day;
+        this.clock = clock;
+    }
+
     public Day getDay() {
         return day;
     }

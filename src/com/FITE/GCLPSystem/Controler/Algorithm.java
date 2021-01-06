@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 
 public class Algorithm {
 //    private PriorityQueue<State> proQeu = new PriorityQueue<>(Comparator.comparingInt(State::getF));
-//    public void AStar(Puzzle puzzle){
+//    public static void AStar(Puzzle puzzle){
 //        getPossibleState_AStar(puzzle);
 //        while (!proQeu.isEmpty()){
 //            Puzzle tPuzzle = proQeu.poll();

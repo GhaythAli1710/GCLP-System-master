@@ -1,9 +1,9 @@
 //package com.FITE.GCLPSystem.Controler;
 //
-//import f.Univ;
+//import f.University;
 //
 //public class State {
-//    private Univ univ;
+//    private University univ;
 //    private int G = 0;
 //    private int H = 0;
 //    private int F = 0;
