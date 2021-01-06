@@ -1,3 +1,4 @@
-jsdghLSDkjSLDKVN
-ghghghghghgh
-jjjjjjjjjjj
+Aa,Theoretical,Sunday,8,A,15.
+Bb,Practical,Sunday,8,La,5.
+Cc,Practical,Sunday,10,La,5.
+Ee,Practical,Sunday,10,Lb,5.
