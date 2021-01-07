@@ -6,15 +6,20 @@ public class Condition {
     private Time time;
     private Essential type;
 
-    Condition(Time time, Essential type)
-    {
+    public Condition() {
+    }
+
+    public Condition(Time time, Essential type) {
         this.time=time;
         this.type=type;
     }
 
-    Condition(Condition condition)
-    {
+    public void setTime(Time time) {
+        this.time = time;
+    }
 
+    public void setType(Essential type) {
+        this.type = type;
     }
 
     public Time getTime() {

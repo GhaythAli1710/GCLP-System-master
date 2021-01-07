@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 public class Tester {
     public static void main(String[] args) throws FileNotFoundException {
         University university = new University();
-        university.addData(Model.getLecturesDataList());
+        university.addData(Model.getLecturesDataList(),Model.getStudentDataList());
         university.Print();
     }
 }

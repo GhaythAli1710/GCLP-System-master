@@ -1,19 +1,20 @@
-package com.FITE.GCLPSystem.Controler;
+package com.FITE.GCLPSystem.Controler.Algorithm;
 
-import java.util.ArrayList;
+import com.FITE.GCLPSystem.Controler.University;
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class Algorithm {
-//    private PriorityQueue<State> proQeu = new PriorityQueue<>(Comparator.comparingInt(State::getF));
-//    public static void AStar(Puzzle puzzle){
+    private PriorityQueue<State> spaceState = new PriorityQueue<>(Comparator.comparingInt(State::getF));
+    public static void AStar(University university){
 //        getPossibleState_AStar(puzzle);
 //        while (!proQeu.isEmpty()){
 //            Puzzle tPuzzle = proQeu.poll();
 //            tPuzzle.Print();
 //            getPossibleState_AStar(tPuzzle);
 //        }
-//    }
+    }
 
 //    public void getPossibleState_AStar(Puzzle puzzle){
 //        for (int r=0;r<puzzle.getRow();r++){
@@ -25,7 +26,7 @@ public class Algorithm {
 ////                            copy.Print();
 //                            copy.setG(copy.getG()+1);
 //                            copy.refresh_H();
-//                            proQeu.add(copy);
+//                            spaceState.add(copy);
 //                            System.out.println(count++);
 //                        }
 //                        puzzle.RotateRight(puzzle.getPiece(iP));

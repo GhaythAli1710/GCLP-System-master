@@ -20,14 +20,22 @@ public class University {
         this.schedule[lecture.getId()].add(lecture);
     }
 
-    public void addData(ArrayList<Lecture> lectures){
+    public void addData(ArrayList<Lecture> lectures ,ArrayList<Student> students){
         for (int i=0;i<lectures.size();i++) {
             this.addLecture(lectures.get(i));
         }
+        for (int i=0;i<students.size();i++) {
+            this.addStudent(students.get(i));
+        }
+    }
+
+    private void addStudent(Student student) {
+        this.students.add(student);
     }
 
     public void Print(){
         this.printSchedule();
+        this.printStudentsList();
     }
 
     private void printSchedule(){
@@ -36,6 +44,12 @@ public class University {
                 Lecture lecture = (Lecture) this.schedule[i].get(j);
                 lecture.print();
             }
+        }
+    }
+
+    private void printStudentsList(){
+        for (int i=0;i<this.students.size();i++){
+            this.students.get(i).print();
         }
     }
 

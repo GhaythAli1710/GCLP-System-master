@@ -27,6 +27,36 @@ public class Student {
         this.conditions.add(condition);
     }
     /***/
+    public void print(){
+        for (int i=0;i<this.subjects.size();i++){
+            System.out.print(this.subjects.get(i) + "++");
+        }
+        System.out.println();
+        for (int i=0;i<this.desires.size();i++){
+            Desire desire = this.desires.get(i);
+            System.out.print(desire.getTime().getDay() + "*");
+            System.out.print(desire.getTime().getClock() + "*");
+            System.out.print(desire.getType() + "++");
+        }
+        System.out.println();
+        for (int i=0;i<this.conditions.size();i++){
+            Condition condition = this.conditions.get(i);
+            System.out.print(condition.getTime().getDay() + "*");
+            System.out.print(condition.getTime().getClock() + "*");
+            System.out.print(condition.getType() + "++");
+        }
+        System.out.println();
+//        this.printSchedule();
+    }
+    /***/
+    public void printSchedule(){
+        for (int i=0;i<this.schedule.length;i++){
+            for (int j=0;j<this.schedule[i].length;j++){
+                System.out.print(this.schedule[i][j].getId() + "**");
+            }
+            System.out.println();
+        }
+    }
 
     // private Getter ??
 //    Student(Student student) {

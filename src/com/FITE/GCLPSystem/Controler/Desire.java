@@ -6,7 +6,7 @@ public class Desire {
     private Time time;
     private NotEssential type;
 
-    Desire(Time time, NotEssential type)
+    public Desire(Time time, NotEssential type)
     {
         this.time=time;
         this.type=type;
