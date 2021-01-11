@@ -83,6 +83,9 @@ public class Student {
         return false;
     }
 
+    public void put(ArrayList<Lecture> lecturesById) {
+    }
+
     private class Checkers{
 
         boolean two_lec_in_same_time(int time, int day) {//first strong constraint

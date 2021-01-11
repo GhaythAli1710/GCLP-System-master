@@ -1,5 +1,6 @@
 package com.FITE.GCLPSystem.Controler.Algorithm;
 
+import com.FITE.GCLPSystem.Controler.Setting;
 import com.FITE.GCLPSystem.Controler.University;
 
 import java.util.Comparator;
@@ -16,10 +17,12 @@ public class Algorithm {
 //        }
     }
 
-//    public void getPossibleState_AStar(Puzzle puzzle){
-//        for (int r=0;r<puzzle.getRow();r++){
-//            for (int c=0;c<puzzle.getColumn();c++){
-//                for (int iP=0;iP<puzzle.getNumPieces();iP++){
+    public void getPossibleState_AStar(University university){
+        for (int i = 0; i< Setting.getNumberSubjects()*2; i++){
+            for (int j=0;j<university.getLecturesById(i).size();j++){
+                for (int s=0;s<university.getStudents().size();s++){
+                    //if True create state , add state to proQueue
+                    university.getStudents().get(s).put(university.getLecturesById(i));
 //                    for (int pos=0;pos<3;pos++){
 //                        Puzzle copy = puzzle.deepCopy();
 //                        if (copy.PutPiece(r,c,iP)){
@@ -31,8 +34,8 @@ public class Algorithm {
 //                        }
 //                        puzzle.RotateRight(puzzle.getPiece(iP));
 //                    }
-//                }
-//            }
-//        }
-//    }
+                }
+            }
+        }
+    }
 }

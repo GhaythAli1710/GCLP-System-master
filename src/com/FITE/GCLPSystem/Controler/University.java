@@ -53,6 +53,14 @@ public class University {
         }
     }
 
+    public ArrayList<Lecture> getLecturesById(int id){
+        return this.schedule[id];
+    }
+
+    public ArrayList<Student> getStudents(){
+        return this.students;
+    }
+
 //    University(f.University university) {
 //        for(int i=0;i<university.t.length;i++) {
 //            this.t[i]= new ArrayList<Lecture>();
